@@ -1,0 +1,35 @@
+{
+  "network": "BNB Smart Chain Testnet",
+  "chainId": "97",
+  "deployedAtUtc": null,
+  "contractName": "AurixRewardClaim",
+  "contractAddress": null,
+  "deploymentTransactionHash": null,
+  "blockNumber": null,
+  "deployerAddress": null,
+  "constructorArguments": [
+    "0x7daf7fE962B123A6698D5e3a109c551872790AeA",
+    "<INITIAL_ADMIN_ADDRESS>",
+    "<INITIAL_APPROVER_MANAGER_ADDRESS>",
+    "<INITIAL_APPROVER_ADDRESS>",
+    "<INITIAL_CAMPAIGN_MANAGER_ADDRESS>",
+    "<INITIAL_PAUSER_ADDRESS>",
+    "<INITIAL_TREASURY_ADDRESS>"
+  ],
+  "compiler": {
+    "version": "0.8.28",
+    "optimizerRuns": 200,
+    "evmVersion": "paris",
+    "viaIR": false
+  },
+  "irbPreflight": {
+    "name": "IRISBANK",
+    "symbol": "IRB",
+    "decimals": "<read-through-RPC-before-deployment>",
+    "totalSupplyBaseUnits": "<read-through-RPC-before-deployment>"
+  },
+  "verification": {
+    "status": "not deployed",
+    "explorerUrl": null
+  }
+}
