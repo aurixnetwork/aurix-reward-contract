@@ -1,0 +1,59 @@
+name: Contract validation
+
+on:
+  pull_request:
+    branches:
+      - main
+      - "feature/**"
+  push:
+    branches:
+      - main
+      - "feature/**"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.23.1
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Compile contracts
+        run: npm run compile
+
+      - name: Lint Solidity and TypeScript
+        run: npm run lint
+
+      - name: Run deterministic tests
+        run: npm test
+
+      - name: Generate coverage
+        run: npm run coverage
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: solidity-coverage
+          path: coverage/
+          if-no-files-found: error
+
+      - name: Write coverage summary
+        if: always()
+        run: |
+          if [ -f coverage/lcov-report/index.html ]; then
+            echo "Solidity coverage report generated successfully." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Solidity coverage report was not generated." >> "$GITHUB_STEP_SUMMARY"
+          fi
