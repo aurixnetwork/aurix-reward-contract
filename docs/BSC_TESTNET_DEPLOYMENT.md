@@ -1,6 +1,6 @@
-# BSC Testnet Deployment Preparation
+# BSC Testnet Deployment
 
-No deployment is performed by setup, tests, CI, preflight, or ABI export. BSC Mainnet is out of scope.
+`AurixRewardClaim` is deployed on BSC Testnet at `0x355D58c905f42F4f78abCD7413371F6EE4Dba137`. Setup, tests, CI, preflight, validation, and ABI export do not deploy or mutate the contract. BSC Mainnet is out of scope.
 
 ## Required environment
 
@@ -56,6 +56,16 @@ not optional. Etherscan currently lists BNB Smart Chain Testnet API access as pa
 path must be supplied through `DEPLOYMENT_FILE`. Verification also requires the deployed contract to have bytecode and
 the locally compiled source/settings and constructor arguments to match that deployment. Sourcify is disabled in
 `hardhat.config.ts`, so there is no configured keyless verification fallback.
+
+## Read-only post-deployment validation
+
+With the deployment RPC configured, run:
+
+```bash
+npm run validate:testnet:deployment
+```
+
+The command derives the artifact when `deployments/` contains exactly one address-specific BSC Testnet JSON file. To select one explicitly, set `DEPLOYMENT_ARTIFACT` to its path. It validates the artifact schema and credential absence, chain ID, transaction/receipt and constructor data, local creation/runtime bytecode, IRB bytecode and metadata, EIP-712 domain, positive and negative role assignments, pause state, deployment fee, and deployer balance. It uses provider reads and contract calls only and sends zero transactions.
 
 ## Post-deployment checklist
 

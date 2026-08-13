@@ -4,7 +4,7 @@ Public smart-contract repository for the Aurix Network reward authorization and 
 
 ## Status
 
-Version 1 is implemented and covered by local automated tests. BNB Smart Chain Testnet deployment and explorer-verification scripts are prepared, but no deployment has occurred in this phase. There is no BSC Mainnet deployment.
+Version 1 is implemented, covered by local automated tests, and deployed to BNB Smart Chain Testnet at `0x355D58c905f42F4f78abCD7413371F6EE4Dba137`. Read-only post-deployment validation passed. Explorer source verification has not yet been performed, and there is no BSC Mainnet deployment.
 
 Passing tests and static checks do not make the contract audited or guarantee security. The existing Beosin review of the AURX token does not cover `AurixRewardClaim`; this contract requires its own independent security review before production use.
 
@@ -97,7 +97,17 @@ npm run export:abi
 
 Local tests do not require an RPC URL or private key. Generated build artifacts, coverage output, local environment files, and unreviewed deployment reports are ignored.
 
-## BSC Testnet preparation
+## BSC Testnet deployment
+
+The public deployment metadata is in [`deployments/bsc-testnet-0x355D58c905f42F4f78abCD7413371F6EE4Dba137.json`](deployments/bsc-testnet-0x355D58c905f42F4f78abCD7413371F6EE4Dba137.json). To repeat the read-only post-deployment checks with the only address-specific artifact in `deployments/`:
+
+```bash
+npm run validate:testnet:deployment
+```
+
+If more than one address-specific artifact exists, set `DEPLOYMENT_ARTIFACT` to the intended JSON path. The validator checks the artifact, receipt and constructor data, runtime bytecode, IRB metadata, EIP-712 domain, role separation, and pause state. It sends zero transactions.
+
+## BSC Testnet operations
 
 Populate only the required placeholders in an untracked `.env`. Run the read-only preflight before any deployment decision:
 
@@ -109,7 +119,7 @@ npm run deploy:testnet:check
 The readiness check validates the reviewed deployer and role mapping, reads the deployer balance and current gas price,
 estimates deployment gas through `eth_estimateGas`, reports bytecode sizes, and sends zero transactions.
 
-The deployment and verification commands are documented in [docs/BSC_TESTNET_DEPLOYMENT.md](docs/BSC_TESTNET_DEPLOYMENT.md). They are prepared commands, not evidence of deployment. Never use them against BSC Mainnet.
+The deployment and verification commands are documented in [docs/BSC_TESTNET_DEPLOYMENT.md](docs/BSC_TESTNET_DEPLOYMENT.md). Explorer source verification remains pending. Never use these commands against BSC Mainnet.
 
 ## Documentation
 
@@ -120,6 +130,7 @@ The deployment and verification commands are documented in [docs/BSC_TESTNET_DEP
 - [Testing](docs/TESTING.md)
 - [BSC Testnet deployment](docs/BSC_TESTNET_DEPLOYMENT.md)
 - [BSC Testnet deployment readiness report](reports/DEPLOYMENT_READINESS_REPORT.md)
+- [BSC Testnet post-deployment validation report](reports/POST_DEPLOYMENT_VALIDATION_REPORT.md)
 - [ABI compatibility](docs/ABI_COMPATIBILITY.md)
 - [Security reporting](SECURITY.md)
 

@@ -14,6 +14,7 @@ All notable changes are recorded here. This project follows semantic versioning 
 - Deterministic authorization, replay, interval, campaign, role, pause, treasury, and security tests.
 - Read-only IRB testnet preflight and prepared BSC Testnet deployment/verification scripts.
 - Zero-transaction BSC Testnet deployment readiness checks with fixed role validation, gas estimation, and bytecode sizing.
+- Read-only BSC Testnet post-deployment validation with artifact, bytecode, token, EIP-712, role, pause-state, and receipt checks.
 - Etherscan V2 multichain configuration for post-deployment BSC Testnet source verification.
 - ABI export, public documentation, coverage tooling, Solidity linting, and GitHub Actions CI.
 

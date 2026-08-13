@@ -13,6 +13,7 @@
     "preflight:irb": "hardhat run scripts/preflight-irb-testnet.ts --network bscTestnet",
     "deploy:testnet:check": "hardhat run scripts/check-testnet-deployment.ts --network bscTestnet",
     "deploy:testnet": "hardhat run scripts/deploy-testnet.ts --network bscTestnet",
+    "validate:testnet:deployment": "hardhat run scripts/validate-testnet-deployment.ts --network bscTestnet",
     "verify:testnet": "hardhat run scripts/verify-testnet.ts --network bscTestnet",
     "export:abi": "hardhat run scripts/export-abi.ts"
   },

@@ -1,0 +1,196 @@
+{
+  "status": "passed",
+  "validationType": "read-only post-deployment",
+  "transactionsSent": 0,
+  "checkedAtUtc": "2026-08-13T18:42:50.239Z",
+  "validationBlockNumber": 124889323,
+  "network": {
+    "name": "BNB Smart Chain Testnet",
+    "chainId": "97"
+  },
+  "artifact": {
+    "path": "deployments/bsc-testnet-0x355D58c905f42F4f78abCD7413371F6EE4Dba137.json",
+    "structureValid": true,
+    "containsSecrets": false,
+    "recordedDeployedAtUtc": "2026-08-13T18:30:49.901Z"
+  },
+  "deployment": {
+    "contractAddress": "0x355D58c905f42F4f78abCD7413371F6EE4Dba137",
+    "transactionHash": "0x8733558c29a8b7c705a4b26a393105111ce2ad3a665a4b6d2574e2817d5f400c",
+    "blockNumber": 124887720,
+    "blockTimestampUtc": "2026-08-13T18:30:47.000Z",
+    "deployerAddress": "0x2A37820df48d298De3907557b02301A46C2e127f",
+    "deployerBalanceWei": "99726177700000000",
+    "deployerBalanceTbnb": "0.0997261777",
+    "gasUsed": "2738223",
+    "effectiveGasPriceWei": "100000000",
+    "effectiveGasPriceGwei": "0.1",
+    "feeWei": "273822300000000",
+    "feeTbnb": "0.0002738223",
+    "constructorArguments": [
+      "0x7daf7fE962B123A6698D5e3a109c551872790AeA",
+      "0x2A37820df48d298De3907557b02301A46C2e127f",
+      "0x2A37820df48d298De3907557b02301A46C2e127f",
+      "0x425f7117D36aC8F45224E895e583b404E0a6eb05",
+      "0x9B2fB8ED115242477C9a8Ea511a0D85E122E1FbE",
+      "0x9B2fB8ED115242477C9a8Ea511a0D85E122E1FbE",
+      "0x2A37820df48d298De3907557b02301A46C2e127f"
+    ]
+  },
+  "bytecode": {
+    "exists": true,
+    "sizeBytes": 11304,
+    "expectedSizeBytes": 11304,
+    "exactMatch": false,
+    "matchesExpectedImplementationIgnoringImmutableReferences": true,
+    "immutableReferenceSlotsNormalized": 13,
+    "onChainCodeHash": "0xdb361ef4a136e2492492b8c54928bd2ff41eab83585428c2d66a3ed9b8ddae0c",
+    "normalizedOnChainCodeHash": "0xd8decd4f4c3746f31fc8900213981b44916a5de43e07c73fe1de5bd58f2e43bf",
+    "normalizedExpectedCodeHash": "0xd8decd4f4c3746f31fc8900213981b44916a5de43e07c73fe1de5bd58f2e43bf",
+    "deploymentInitcodeMatchesLocalCompilation": true
+  },
+  "rewardToken": {
+    "address": "0x7daf7fE962B123A6698D5e3a109c551872790AeA",
+    "codeExists": true,
+    "codeSizeBytes": 5109,
+    "name": "IRISBANK",
+    "symbol": "IRB",
+    "decimals": 18
+  },
+  "eip712": {
+    "fields": "0x0f",
+    "name": "AurixRewardClaim",
+    "version": "1",
+    "chainId": "97",
+    "verifyingContract": "0x355D58c905f42F4f78abCD7413371F6EE4Dba137",
+    "salt": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "extensions": []
+  },
+  "roles": {
+    "positiveChecks": [
+      {
+        "role": "DEFAULT_ADMIN_ROLE",
+        "roleId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "address": "0x2A37820df48d298De3907557b02301A46C2e127f",
+        "hasRole": true
+      },
+      {
+        "role": "APPROVER_MANAGER_ROLE",
+        "roleId": "0x1dee88fe957ea3ddd6378610fb5a45a7cb63a7becabc24dd2423d1f7f3c4cf4e",
+        "address": "0x2A37820df48d298De3907557b02301A46C2e127f",
+        "hasRole": true
+      },
+      {
+        "role": "APPROVER_ROLE",
+        "roleId": "0x408a36151f841709116a4e8aca4e0202874f7f54687dcb863b1ea4672dc9d8cf",
+        "address": "0x425f7117D36aC8F45224E895e583b404E0a6eb05",
+        "hasRole": true
+      },
+      {
+        "role": "CAMPAIGN_MANAGER_ROLE",
+        "roleId": "0x5022544358ee0bece556b72ae8983c7f24341bd5b9483ce8a19bff5efbb2de92",
+        "address": "0x9B2fB8ED115242477C9a8Ea511a0D85E122E1FbE",
+        "hasRole": true
+      },
+      {
+        "role": "PAUSER_ROLE",
+        "roleId": "0x65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a",
+        "address": "0x9B2fB8ED115242477C9a8Ea511a0D85E122E1FbE",
+        "hasRole": true
+      },
+      {
+        "role": "TREASURY_ROLE",
+        "roleId": "0xe1dcbdb91df27212a29bc27177c840cf2f819ecf2187432e1fac86c2dd5dfca9",
+        "address": "0x2A37820df48d298De3907557b02301A46C2e127f",
+        "hasRole": true
+      }
+    ],
+    "negativeChecks": [
+      {
+        "accountLabel": "Approver",
+        "address": "0x425f7117D36aC8F45224E895e583b404E0a6eb05",
+        "role": "DEFAULT_ADMIN_ROLE",
+        "roleId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "hasRole": false
+      },
+      {
+        "accountLabel": "Approver",
+        "address": "0x425f7117D36aC8F45224E895e583b404E0a6eb05",
+        "role": "APPROVER_MANAGER_ROLE",
+        "roleId": "0x1dee88fe957ea3ddd6378610fb5a45a7cb63a7becabc24dd2423d1f7f3c4cf4e",
+        "hasRole": false
+      },
+      {
+        "accountLabel": "Approver",
+        "address": "0x425f7117D36aC8F45224E895e583b404E0a6eb05",
+        "role": "CAMPAIGN_MANAGER_ROLE",
+        "roleId": "0x5022544358ee0bece556b72ae8983c7f24341bd5b9483ce8a19bff5efbb2de92",
+        "hasRole": false
+      },
+      {
+        "accountLabel": "Approver",
+        "address": "0x425f7117D36aC8F45224E895e583b404E0a6eb05",
+        "role": "PAUSER_ROLE",
+        "roleId": "0x65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a",
+        "hasRole": false
+      },
+      {
+        "accountLabel": "Approver",
+        "address": "0x425f7117D36aC8F45224E895e583b404E0a6eb05",
+        "role": "TREASURY_ROLE",
+        "roleId": "0xe1dcbdb91df27212a29bc27177c840cf2f819ecf2187432e1fac86c2dd5dfca9",
+        "hasRole": false
+      },
+      {
+        "accountLabel": "Operations",
+        "address": "0x9B2fB8ED115242477C9a8Ea511a0D85E122E1FbE",
+        "role": "DEFAULT_ADMIN_ROLE",
+        "roleId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "hasRole": false
+      },
+      {
+        "accountLabel": "Operations",
+        "address": "0x9B2fB8ED115242477C9a8Ea511a0D85E122E1FbE",
+        "role": "APPROVER_MANAGER_ROLE",
+        "roleId": "0x1dee88fe957ea3ddd6378610fb5a45a7cb63a7becabc24dd2423d1f7f3c4cf4e",
+        "hasRole": false
+      },
+      {
+        "accountLabel": "Operations",
+        "address": "0x9B2fB8ED115242477C9a8Ea511a0D85E122E1FbE",
+        "role": "APPROVER_ROLE",
+        "roleId": "0x408a36151f841709116a4e8aca4e0202874f7f54687dcb863b1ea4672dc9d8cf",
+        "hasRole": false
+      },
+      {
+        "accountLabel": "Operations",
+        "address": "0x9B2fB8ED115242477C9a8Ea511a0D85E122E1FbE",
+        "role": "TREASURY_ROLE",
+        "roleId": "0xe1dcbdb91df27212a29bc27177c840cf2f819ecf2187432e1fac86c2dd5dfca9",
+        "hasRole": false
+      },
+      {
+        "accountLabel": "Admin/deployer",
+        "address": "0x2A37820df48d298De3907557b02301A46C2e127f",
+        "role": "APPROVER_ROLE",
+        "roleId": "0x408a36151f841709116a4e8aca4e0202874f7f54687dcb863b1ea4672dc9d8cf",
+        "hasRole": false
+      },
+      {
+        "accountLabel": "Admin/deployer",
+        "address": "0x2A37820df48d298De3907557b02301A46C2e127f",
+        "role": "CAMPAIGN_MANAGER_ROLE",
+        "roleId": "0x5022544358ee0bece556b72ae8983c7f24341bd5b9483ce8a19bff5efbb2de92",
+        "hasRole": false
+      },
+      {
+        "accountLabel": "Admin/deployer",
+        "address": "0x2A37820df48d298De3907557b02301A46C2e127f",
+        "role": "PAUSER_ROLE",
+        "roleId": "0x65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a",
+        "hasRole": false
+      }
+    ]
+  },
+  "paused": false
+}

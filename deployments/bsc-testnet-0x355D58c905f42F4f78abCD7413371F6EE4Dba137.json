@@ -1,0 +1,66 @@
+{
+  "network": "BNB Smart Chain Testnet",
+  "chainId": "97",
+  "deployedAtUtc": "2026-08-13T18:30:49.901Z",
+  "contractName": "AurixRewardClaim",
+  "contractAddress": "0x355D58c905f42F4f78abCD7413371F6EE4Dba137",
+  "deploymentTransactionHash": "0x8733558c29a8b7c705a4b26a393105111ce2ad3a665a4b6d2574e2817d5f400c",
+  "blockNumber": 124887720,
+  "confirmations": 3,
+  "deployerAddress": "0x2A37820df48d298De3907557b02301A46C2e127f",
+  "constructorArguments": [
+    "0x7daf7fE962B123A6698D5e3a109c551872790AeA",
+    "0x2A37820df48d298De3907557b02301A46C2e127f",
+    "0x2A37820df48d298De3907557b02301A46C2e127f",
+    "0x425f7117D36aC8F45224E895e583b404E0a6eb05",
+    "0x9B2fB8ED115242477C9a8Ea511a0D85E122E1FbE",
+    "0x9B2fB8ED115242477C9a8Ea511a0D85E122E1FbE",
+    "0x2A37820df48d298De3907557b02301A46C2e127f"
+  ],
+  "eip712": {
+    "name": "AurixRewardClaim",
+    "version": "1"
+  },
+  "roleChecks": {
+    "defaultAdmin": true,
+    "approverManager": true,
+    "approver": true,
+    "campaignManager": true,
+    "pauser": true,
+    "treasury": true
+  },
+  "approverSeparationChecks": {
+    "defaultAdmin": true,
+    "approverManager": true,
+    "campaignManager": true,
+    "pauser": true,
+    "treasury": true
+  },
+  "irbPreflight": {
+    "checkedAtUtc": "2026-08-13T18:30:46.655Z",
+    "chainId": "97",
+    "tokenAddress": "0x7daf7fE962B123A6698D5e3a109c551872790AeA",
+    "codeSizeBytes": 5109,
+    "name": "IRISBANK",
+    "symbol": "IRB",
+    "decimals": 18,
+    "totalSupplyBaseUnits": "20000000000000000000000000000"
+  },
+  "compiler": {
+    "version": "0.8.28",
+    "optimizerRuns": 200,
+    "evmVersion": "paris",
+    "viaIR": false
+  },
+  "packageVersions": {
+    "node": "v22.23.1",
+    "hardhat": "2.29.0",
+    "ethers": "6.17.0",
+    "openzeppelinContracts": "5.4.0",
+    "dotenv": "17.4.2",
+    "typescript": "5.9.3",
+    "solidityCoverage": "0.8.17",
+    "solhint": "6.2.3"
+  },
+  "gitCommit": "71bfbfa4252430bda6c907e5a7e78bedfa175116"
+}
