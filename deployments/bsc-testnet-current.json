@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "status": "active-testnet-baseline",
+  "network": {
+    "name": "BNB Smart Chain Testnet",
+    "chainId": "97"
+  },
+  "contract": {
+    "name": "AurixRewardClaim",
+    "address": "0x355D58c905f42F4f78abCD7413371F6EE4Dba137",
+    "deploymentTransactionHash": "0x8733558c29a8b7c705a4b26a393105111ce2ad3a665a4b6d2574e2817d5f400c",
+    "deploymentBlock": 124887720,
+    "canonicalDeploymentArtifact": "deployments/bsc-testnet-0x355D58c905f42F4f78abCD7413371F6EE4Dba137.json",
+    "abi": "abi/AurixRewardClaim.json"
+  },
+  "rewardToken": {
+    "name": "IRISBANK",
+    "symbol": "IRB",
+    "decimals": 18,
+    "address": "0x7daf7fE962B123A6698D5e3a109c551872790AeA"
+  },
+  "eip712": {
+    "name": "AurixRewardClaim",
+    "version": "1",
+    "chainId": "97",
+    "verifyingContract": "0x355D58c905f42F4f78abCD7413371F6EE4Dba137"
+  },
+  "campaignIntervalSeconds": {
+    "minimum": 3600,
+    "maximum": 604800
+  },
+  "roles": {
+    "DEFAULT_ADMIN_ROLE": "0x2A37820df48d298De3907557b02301A46C2e127f",
+    "APPROVER_MANAGER_ROLE": "0x2A37820df48d298De3907557b02301A46C2e127f",
+    "APPROVER_ROLE": "0x425f7117D36aC8F45224E895e583b404E0a6eb05",
+    "CAMPAIGN_MANAGER_ROLE": "0x9B2fB8ED115242477C9a8Ea511a0D85E122E1FbE",
+    "PAUSER_ROLE": "0x9B2fB8ED115242477C9a8Ea511a0D85E122E1FbE",
+    "TREASURY_ROLE": "0x2A37820df48d298De3907557b02301A46C2e127f"
+  },
+  "compiler": {
+    "version": "0.8.28+commit.7893614a",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "evmVersion": "paris",
+    "viaIR": false,
+    "normalizedRuntimeHash": "0xd8decd4f4c3746f31fc8900213981b44916a5de43e07c73fe1de5bd58f2e43bf"
+  },
+  "sourceVerification": {
+    "service": "Sourcify",
+    "match": "exact_match",
+    "matchId": "43607722",
+    "verifiedAtUtc": "2026-08-13T18:55:11Z",
+    "publicUrl": "https://repo.sourcify.dev/97/0x355D58c905f42F4f78abCD7413371F6EE4Dba137",
+    "deployedSourceGitCommit": "71bfbfa4252430bda6c907e5a7e78bedfa175116",
+    "sourceVerificationGitCommit": "88f686b67e454eb4e2658d9a4cb4c03101dfe759"
+  },
+  "validation": {
+    "postDeployment": "passed",
+    "tests": {
+      "passing": 67,
+      "failing": 0
+    },
+    "ci": {
+      "workflow": "Contract validation",
+      "status": "passed",
+      "commit": "88f686b67e454eb4e2658d9a4cb4c03101dfe759",
+      "url": "https://github.com/aurixnetwork/aurix-reward-contract/actions/runs/31733936683"
+    }
+  },
+  "mainnet": {
+    "deployed": false
+  }
+}

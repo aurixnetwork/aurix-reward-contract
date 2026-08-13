@@ -13,6 +13,7 @@ dist/
 deployments/local/
 deployments/bsc-testnet-*.json
 !deployments/bsc-testnet.example.json
+!deployments/bsc-testnet-current.json
 reports/irb-testnet-preflight.json
 *.log
 

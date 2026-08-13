@@ -6,7 +6,7 @@ The version 1 ABI is exported from `AurixRewardClaim` with:
 npm run export:abi
 ```
 
-The committed output is `abi/AurixRewardClaim.json`. The source interface is `contracts/interfaces/IAurixRewardClaim.sol`.
+The committed output is `abi/AurixRewardClaim.json`. It is the authoritative JSON ABI for the future Node.js reward server and other consumers. Resolve its deployed testnet address from `deployments/bsc-testnet-current.json`; the ABI intentionally contains no network credentials or signer configuration. The source interface is `contracts/interfaces/IAurixRewardClaim.sol`.
 
 Compatibility-sensitive elements include constructor argument order; `RewardAuthorization` and `Campaign` tuple order/types; EIP-712 name/version/type string; public role/interval/type-hash constants; claim/admin/view functions; public mapping getters; custom errors; and events.
 

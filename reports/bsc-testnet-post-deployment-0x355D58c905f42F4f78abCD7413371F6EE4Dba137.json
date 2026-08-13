@@ -2,8 +2,8 @@
   "status": "passed",
   "validationType": "read-only post-deployment",
   "transactionsSent": 0,
-  "checkedAtUtc": "2026-08-13T19:00:45.114Z",
-  "validationBlockNumber": 124891711,
+  "checkedAtUtc": "2026-08-13T19:15:48.024Z",
+  "validationBlockNumber": 124893718,
   "network": {
     "name": "BNB Smart Chain Testnet",
     "chainId": "97"

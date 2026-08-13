@@ -16,6 +16,7 @@ All notable changes are recorded here. This project follows semantic versioning 
 - Zero-transaction BSC Testnet deployment readiness checks with fixed role validation, gas estimation, and bytecode sizing.
 - Read-only BSC Testnet post-deployment validation with artifact, bytecode, token, EIP-712, role, pause-state, and receipt checks.
 - Exact-match Sourcify source publication and a reproducible BscScan Testnet Standard JSON verification package.
+- Finalized public BSC Testnet deployment status, stable current-deployment metadata, and consumer ABI references.
 - Etherscan V2 multichain configuration for post-deployment BSC Testnet source verification.
 - ABI export, public documentation, coverage tooling, Solidity linting, and GitHub Actions CI.
 

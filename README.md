@@ -1,10 +1,14 @@
 # Aurix Reward Contract
 
+[![Contract validation](https://github.com/aurixnetwork/aurix-reward-contract/actions/workflows/ci.yml/badge.svg?branch=feature%2Ftestnet-reward-contract-v1)](https://github.com/aurixnetwork/aurix-reward-contract/actions/workflows/ci.yml?query=branch%3Afeature%2Ftestnet-reward-contract-v1)
+
 Public smart-contract repository for the Aurix Network reward authorization and claimant self-claim system. This repository is independent of the off-chain Node.js reward server.
 
 ## Status
 
-Version 1 is implemented, covered by local automated tests, and deployed to BNB Smart Chain Testnet at `0x355D58c905f42F4f78abCD7413371F6EE4Dba137`. Read-only post-deployment validation passed, and Sourcify reports an exact source match for both creation and runtime bytecode. There is no BSC Mainnet deployment.
+Version 1 is public development software deployed to BNB Smart Chain Testnet at `0x355D58c905f42F4f78abCD7413371F6EE4Dba137`. Read-only post-deployment validation and GitHub CI passed, and Sourcify reports an exact source match for both creation and runtime bytecode. **BSC Mainnet is not deployed.**
+
+The authoritative public references are the [testnet deployment status](docs/TESTNET_DEPLOYMENT_STATUS.md), [current deployment reference](deployments/bsc-testnet-current.json), address-specific [deployment record](deployments/bsc-testnet-0x355D58c905f42F4f78abCD7413371F6EE4Dba137.json), and [consumer ABI](abi/AurixRewardClaim.json).
 
 Passing tests and static checks do not make the contract audited or guarantee security. The existing Beosin review of the AURX token does not cover `AurixRewardClaim`; this contract requires its own independent security review before production use.
 
@@ -99,7 +103,7 @@ Local tests do not require an RPC URL or private key. Generated build artifacts,
 
 ## BSC Testnet deployment
 
-The public deployment metadata is in [`deployments/bsc-testnet-0x355D58c905f42F4f78abCD7413371F6EE4Dba137.json`](deployments/bsc-testnet-0x355D58c905f42F4f78abCD7413371F6EE4Dba137.json). To repeat the read-only post-deployment checks with the only address-specific artifact in `deployments/`:
+The canonical machine-readable deployment record is [`deployments/bsc-testnet-0x355D58c905f42F4f78abCD7413371F6EE4Dba137.json`](deployments/bsc-testnet-0x355D58c905f42F4f78abCD7413371F6EE4Dba137.json). [`deployments/bsc-testnet-current.json`](deployments/bsc-testnet-current.json) is the stable public pointer for consumers. To repeat the read-only post-deployment checks:
 
 - Contract: `0x355D58c905f42F4f78abCD7413371F6EE4Dba137`
 - IRB test token: `0x7daf7fE962B123A6698D5e3a109c551872790AeA`
@@ -132,7 +136,7 @@ npm run deploy:testnet:check
 The readiness check validates the reviewed deployer and role mapping, reads the deployer balance and current gas price,
 estimates deployment gas through `eth_estimateGas`, reports bytecode sizes, and sends zero transactions.
 
-The deployment and verification commands are documented in [docs/BSC_TESTNET_DEPLOYMENT.md](docs/BSC_TESTNET_DEPLOYMENT.md). Explorer source verification remains pending. Never use these commands against BSC Mainnet.
+The deployment and verification commands are documented in [docs/BSC_TESTNET_DEPLOYMENT.md](docs/BSC_TESTNET_DEPLOYMENT.md). Sourcify verification is complete; the optional manual BscScan Testnet submission remains pending. Never use these commands against BSC Mainnet.
 
 ## Documentation
 
@@ -142,6 +146,7 @@ The deployment and verification commands are documented in [docs/BSC_TESTNET_DEP
 - [Campaign model](docs/CAMPAIGN_MODEL.md)
 - [Testing](docs/TESTING.md)
 - [BSC Testnet deployment](docs/BSC_TESTNET_DEPLOYMENT.md)
+- [BSC Testnet deployment status](docs/TESTNET_DEPLOYMENT_STATUS.md)
 - [BSC Testnet deployment readiness report](reports/DEPLOYMENT_READINESS_REPORT.md)
 - [BSC Testnet post-deployment validation report](reports/POST_DEPLOYMENT_VALIDATION_REPORT.md)
 - [BSC Testnet source-verification report](reports/SOURCE_VERIFICATION_REPORT.md)
