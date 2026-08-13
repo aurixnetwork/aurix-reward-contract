@@ -41,7 +41,7 @@ confirmations, verifies the immutable token, domain identity, initial roles, and
 JSON report containing transaction/block/deployer/arguments/compiler/packages/Git commit/time and observed IRB metadata.
 It never prints a private key.
 
-## Prepared explorer verification
+## Automated Etherscan V2 verification
 
 Review the generated report, set `DEPLOYMENT_FILE` to it, then—only with owner authorization—run:
 
@@ -51,11 +51,27 @@ npm run verify:testnet
 
 Verification is restricted to configured BSC Testnet chain ID 97. Published addresses belong in a reviewed deployment report; `deployments/bsc-testnet.example.json` is only a schema example and contains no deployed address.
 
-The current Hardhat verification mechanism uses the Etherscan V2 multichain API and requires `ETHERSCAN_API_KEY`; it is
-not optional. Etherscan currently lists BNB Smart Chain Testnet API access as paid-tier only. The ignored deployment report
-path must be supplied through `DEPLOYMENT_FILE`. Verification also requires the deployed contract to have bytecode and
-the locally compiled source/settings and constructor arguments to match that deployment. Sourcify is disabled in
-`hardhat.config.ts`, so there is no configured keyless verification fallback.
+The Etherscan-specific command uses the Etherscan V2 multichain API and requires `ETHERSCAN_API_KEY`. The deployment report path must be supplied through `DEPLOYMENT_FILE`. This path is preserved for later use and was not invoked during Sourcify verification. No claim about Etherscan account-plan availability or pricing is made here; operators must check current explorer terms before using it.
+
+## Sourcify verification
+
+Sourcify verification does not require an API key or blockchain transaction. `AurixRewardClaim` is publicly indexed as an exact creation and runtime match:
+
+<https://repo.sourcify.dev/97/0x355D58c905f42F4f78abCD7413371F6EE4Dba137>
+
+Repeat the read-only public verification check with:
+
+```bash
+npm run verify:testnet:sourcify
+```
+
+The command uses Sourcify API v2 because the official Hardhat 2 verification plugin's legacy Sourcify API v1 path is no longer available. It still derives the exact Standard JSON compiler input from Hardhat build info, validates it against the deployment artifact and creation transaction, and runs on `bscTestnetReadOnly`, which has zero configured signer accounts.
+
+## Manual BscScan verification
+
+`verification/bscscan-testnet/` contains the exact Standard JSON compiler input, ABI, compiler metadata, encoded constructor arguments, manifest, and form instructions. This package is ready for manual BscScan Testnet source publication but has not been manually submitted. It is not a flattened approximation.
+
+Automated Etherscan V2 verification, Sourcify verification, and manual BscScan Standard JSON verification are separate publication paths. None sends a blockchain transaction.
 
 ## Read-only post-deployment validation
 
@@ -69,4 +85,4 @@ The command derives the artifact when `deployments/` contains exactly one addres
 
 ## Post-deployment checklist
 
-Verify source, bytecode/compiler settings, IRB metadata, domain, all role members/admins, token funding, campaign settings, explorer labels, and monitoring. Transfer administrative roles to reviewed multisigs where appropriate. Revoke temporary roles deliberately. Run a separately approved minimal testnet claim before wider use.
+Sourcify source and compiler settings and the read-only IRB/domain/role validations are complete. BscScan manual publication, token funding, campaign configuration, explorer labels, monitoring, role migration, and any minimal testnet claim remain separate explicitly approved operational steps.

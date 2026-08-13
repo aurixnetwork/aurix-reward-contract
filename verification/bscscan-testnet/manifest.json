@@ -1,0 +1,25 @@
+{
+  "network": "BNB Smart Chain Testnet",
+  "chainId": "97",
+  "contractName": "AurixRewardClaim",
+  "fullyQualifiedContractName": "contracts/AurixRewardClaim.sol:AurixRewardClaim",
+  "contractAddress": "0x355D58c905f42F4f78abCD7413371F6EE4Dba137",
+  "deploymentTransactionHash": "0x8733558c29a8b7c705a4b26a393105111ce2ad3a665a4b6d2574e2817d5f400c",
+  "deployedSourceGitCommit": "71bfbfa4252430bda6c907e5a7e78bedfa175116",
+  "compiler": {
+    "version": "0.8.28",
+    "longVersion": "0.8.28+commit.7893614a",
+    "bscscanVersion": "v0.8.28+commit.7893614a",
+    "optimizerEnabled": true,
+    "optimizerRuns": 200,
+    "evmVersion": "paris",
+    "viaIR": false
+  },
+  "license": "MIT",
+  "sourceCount": 29,
+  "standardJsonInputSha256": "754cf71c3f282b89c1efff2f9f6a3b48b6590ad40346dc7bbbe516ed352b7fc6",
+  "metadataSha256": "990265725f76755797ec2f751ad468b78762f5a7e3893c2a7edc95e1f8323a84",
+  "encodedConstructorArguments": "0x0000000000000000000000007daf7fe962b123a6698d5e3a109c551872790aea0000000000000000000000002a37820df48d298de3907557b02301a46c2e127f0000000000000000000000002a37820df48d298de3907557b02301a46c2e127f000000000000000000000000425f7117d36ac8f45224e895e583b404e0a6eb050000000000000000000000009b2fb8ed115242477c9a8ea511a0d85e122e1fbe0000000000000000000000009b2fb8ed115242477c9a8ea511a0d85e122e1fbe0000000000000000000000002a37820df48d298de3907557b02301a46c2e127f",
+  "bscscanStatus": "not submitted",
+  "transactionsRequired": 0
+}

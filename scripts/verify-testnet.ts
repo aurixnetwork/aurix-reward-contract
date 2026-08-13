@@ -20,10 +20,12 @@ async function main(): Promise<void> {
   if (!reportPath) throw new Error("DEPLOYMENT_FILE must point to a reviewed deployment JSON report");
   const report = JSON.parse(await readFile(reportPath, "utf8")) as DeploymentReport;
   if (report.chainId !== "97") throw new Error("Deployment report is not for chain ID 97");
-  await run("verify:verify", {
+  await run("verify:etherscan", {
     address: report.contractAddress,
-    constructorArguments: report.constructorArguments,
+    constructorArgsParams: report.constructorArguments,
     contract: "contracts/AurixRewardClaim.sol:AurixRewardClaim",
+    force: false,
+    libraries: {},
   });
 }
 

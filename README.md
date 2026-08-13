@@ -4,7 +4,7 @@ Public smart-contract repository for the Aurix Network reward authorization and 
 
 ## Status
 
-Version 1 is implemented, covered by local automated tests, and deployed to BNB Smart Chain Testnet at `0x355D58c905f42F4f78abCD7413371F6EE4Dba137`. Read-only post-deployment validation passed. Explorer source verification has not yet been performed, and there is no BSC Mainnet deployment.
+Version 1 is implemented, covered by local automated tests, and deployed to BNB Smart Chain Testnet at `0x355D58c905f42F4f78abCD7413371F6EE4Dba137`. Read-only post-deployment validation passed, and Sourcify reports an exact source match for both creation and runtime bytecode. There is no BSC Mainnet deployment.
 
 Passing tests and static checks do not make the contract audited or guarantee security. The existing Beosin review of the AURX token does not cover `AurixRewardClaim`; this contract requires its own independent security review before production use.
 
@@ -101,11 +101,24 @@ Local tests do not require an RPC URL or private key. Generated build artifacts,
 
 The public deployment metadata is in [`deployments/bsc-testnet-0x355D58c905f42F4f78abCD7413371F6EE4Dba137.json`](deployments/bsc-testnet-0x355D58c905f42F4f78abCD7413371F6EE4Dba137.json). To repeat the read-only post-deployment checks with the only address-specific artifact in `deployments/`:
 
+- Contract: `0x355D58c905f42F4f78abCD7413371F6EE4Dba137`
+- IRB test token: `0x7daf7fE962B123A6698D5e3a109c551872790AeA`
+- Deployment transaction: `0x8733558c29a8b7c705a4b26a393105111ce2ad3a665a4b6d2574e2817d5f400c`
+- On-chain validation: passed
+- Source verification: [Sourcify exact match](https://repo.sourcify.dev/97/0x355D58c905f42F4f78abCD7413371F6EE4Dba137)
+- BSC Mainnet: not deployed
+
 ```bash
 npm run validate:testnet:deployment
 ```
 
 If more than one address-specific artifact exists, set `DEPLOYMENT_ARTIFACT` to the intended JSON path. The validator checks the artifact, receipt and constructor data, runtime bytecode, IRB metadata, EIP-712 domain, role separation, and pause state. It sends zero transactions.
+
+Repeat the public Sourcify verification/status check with a read-only network that configures no signer accounts:
+
+```bash
+npm run verify:testnet:sourcify
+```
 
 ## BSC Testnet operations
 
@@ -131,6 +144,7 @@ The deployment and verification commands are documented in [docs/BSC_TESTNET_DEP
 - [BSC Testnet deployment](docs/BSC_TESTNET_DEPLOYMENT.md)
 - [BSC Testnet deployment readiness report](reports/DEPLOYMENT_READINESS_REPORT.md)
 - [BSC Testnet post-deployment validation report](reports/POST_DEPLOYMENT_VALIDATION_REPORT.md)
+- [BSC Testnet source-verification report](reports/SOURCE_VERIFICATION_REPORT.md)
 - [ABI compatibility](docs/ABI_COMPATIBILITY.md)
 - [Security reporting](SECURITY.md)
 

@@ -29,12 +29,19 @@ const config: HardhatUserConfig = {
       chainId: 97,
       accounts: deployerPrivateKey ? [deployerPrivateKey] : [],
     },
+    bscTestnetReadOnly: {
+      url: rpcUrl,
+      chainId: 97,
+      accounts: [],
+    },
   },
   etherscan: {
     apiKey: etherscanApiKey,
   },
   sourcify: {
-    enabled: false,
+    enabled: true,
+    apiUrl: "https://sourcify.dev/server",
+    browserUrl: "https://repo.sourcify.dev",
   },
   mocha: {
     timeout: 40_000,

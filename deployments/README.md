@@ -8,6 +8,8 @@
 - Deployment block: `124887720`
 - Metadata: [`bsc-testnet-0x355D58c905f42F4f78abCD7413371F6EE4Dba137.json`](bsc-testnet-0x355D58c905f42F4f78abCD7413371F6EE4Dba137.json)
 - Read-only validation: [`../reports/POST_DEPLOYMENT_VALIDATION_REPORT.md`](../reports/POST_DEPLOYMENT_VALIDATION_REPORT.md)
-- Explorer source verification: pending
+- Source verification: [Sourcify exact match](https://repo.sourcify.dev/97/0x355D58c905f42F4f78abCD7413371F6EE4Dba137)
+- Source-verification report: [`../reports/SOURCE_VERIFICATION_REPORT.md`](../reports/SOURCE_VERIFICATION_REPORT.md)
+- BscScan manual Standard JSON package: [`../verification/bscscan-testnet/`](../verification/bscscan-testnet/)
 
 `bsc-testnet.example.json` remains the generic report-shape example. Never add private keys, RPC credentials, API keys, mnemonics, or other credentials to deployment metadata.

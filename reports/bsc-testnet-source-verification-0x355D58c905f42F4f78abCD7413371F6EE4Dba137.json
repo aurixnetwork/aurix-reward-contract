@@ -1,0 +1,82 @@
+{
+  "status": "passed",
+  "verificationService": "Sourcify API v2",
+  "transactionsSent": 0,
+  "checkedAtUtc": "2026-08-13T18:58:27.134Z",
+  "network": {
+    "name": "BNB Smart Chain Testnet",
+    "chainId": "97"
+  },
+  "contract": {
+    "name": "AurixRewardClaim",
+    "fullyQualifiedName": "contracts/AurixRewardClaim.sol:AurixRewardClaim",
+    "address": "0x355D58c905f42F4f78abCD7413371F6EE4Dba137"
+  },
+  "deploymentTransactionHash": "0x8733558c29a8b7c705a4b26a393105111ce2ad3a665a4b6d2574e2817d5f400c",
+  "deployedSourceGitCommit": "71bfbfa4252430bda6c907e5a7e78bedfa175116",
+  "compiler": {
+    "version": "0.8.28",
+    "longVersion": "0.8.28+commit.7893614a",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "evmVersion": "paris",
+    "viaIR": false,
+    "standardJsonInputSha256": "754cf71c3f282b89c1efff2f9f6a3b48b6590ad40346dc7bbbe516ed352b7fc6",
+    "sourceCount": 29
+  },
+  "constructorArguments": [
+    "0x7daf7fE962B123A6698D5e3a109c551872790AeA",
+    "0x2A37820df48d298De3907557b02301A46C2e127f",
+    "0x2A37820df48d298De3907557b02301A46C2e127f",
+    "0x425f7117D36aC8F45224E895e583b404E0a6eb05",
+    "0x9B2fB8ED115242477C9a8Ea511a0D85E122E1FbE",
+    "0x9B2fB8ED115242477C9a8Ea511a0D85E122E1FbE",
+    "0x2A37820df48d298De3907557b02301A46C2e127f"
+  ],
+  "encodedConstructorArguments": "0x0000000000000000000000007daf7fe962b123a6698d5e3a109c551872790aea0000000000000000000000002a37820df48d298de3907557b02301a46c2e127f0000000000000000000000002a37820df48d298de3907557b02301a46c2e127f000000000000000000000000425f7117d36ac8f45224e895e583b404e0a6eb050000000000000000000000009b2fb8ed115242477c9a8ea511a0d85e122e1fbe0000000000000000000000009b2fb8ed115242477c9a8ea511a0d85e122e1fbe0000000000000000000000002a37820df48d298de3907557b02301a46c2e127f",
+  "submission": {
+    "result": "already_verified",
+    "verificationId": null
+  },
+  "verificationJob": null,
+  "publicResult": {
+    "matchId": "43607722",
+    "creationMatch": "exact_match",
+    "runtimeMatch": "exact_match",
+    "verifiedAt": "2026-08-13T18:55:11Z",
+    "match": "exact_match",
+    "chainId": "97",
+    "address": "0x355D58c905f42F4f78abCD7413371F6EE4Dba137"
+  },
+  "publicRepositoryEvidence": {
+    "compiler": {
+      "language": "Solidity",
+      "compiler": "solc",
+      "compilerVersion": "0.8.28+commit.7893614a",
+      "compilerSettings": {
+        "viaIR": false,
+        "optimizer": {
+          "runs": 200,
+          "enabled": true
+        },
+        "evmVersion": "paris"
+      },
+      "name": "AurixRewardClaim",
+      "fullyQualifiedName": "contracts/AurixRewardClaim.sol:AurixRewardClaim"
+    },
+    "sourceCount": 29,
+    "primarySourcePresentAndMatched": true,
+    "abiEntries": 98,
+    "abiMatchesLocalArtifact": true,
+    "deployment": {
+      "transactionHash": "0x8733558c29a8b7c705a4b26a393105111ce2ad3a665a4b6d2574e2817d5f400c",
+      "blockNumber": "124887720",
+      "transactionIndex": "3",
+      "deployer": "0x2A37820df48d298De3907557b02301A46C2e127f"
+    },
+    "responseSha256": "c191bd0655a5eb77061ae2ea616a76705744fe9e073d35f2e7a88119931f0bbc"
+  },
+  "publicUrl": "https://repo.sourcify.dev/97/0x355D58c905f42F4f78abCD7413371F6EE4Dba137"
+}

@@ -14,6 +14,8 @@
     "deploy:testnet:check": "hardhat run scripts/check-testnet-deployment.ts --network bscTestnet",
     "deploy:testnet": "hardhat run scripts/deploy-testnet.ts --network bscTestnet",
     "validate:testnet:deployment": "hardhat run scripts/validate-testnet-deployment.ts --network bscTestnet",
+    "verify:testnet:sourcify": "hardhat run scripts/verify-testnet-sourcify.ts --network bscTestnetReadOnly",
+    "prepare:bscscan:testnet": "hardhat run scripts/prepare-bscscan-testnet.ts",
     "verify:testnet": "hardhat run scripts/verify-testnet.ts --network bscTestnet",
     "export:abi": "hardhat run scripts/export-abi.ts"
   },
