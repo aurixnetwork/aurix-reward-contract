@@ -3,7 +3,13 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 
 import { ethers } from "hardhat";
 
-import { IRB_TEST_TOKEN_ADDRESS, requireAddressEnv } from "./lib/config";
+import {
+  formatErrorSafely,
+  getTestnetConstructorArguments,
+  getValidatedTestnetDeployer,
+  IRB_TEST_TOKEN_ADDRESS,
+  requireEnv,
+} from "./lib/config";
 import { validateIrbToken } from "./lib/irb-preflight";
 
 interface PackageManifest {
@@ -12,19 +18,10 @@ interface PackageManifest {
 }
 
 async function main(): Promise<void> {
+  requireEnv("BSC_TESTNET_RPC_URL");
   const preflight = await validateIrbToken(ethers.provider, "reports/irb-testnet-preflight.json");
-  const [deployer] = await ethers.getSigners();
-  if (!deployer) throw new Error("DEPLOYER_PRIVATE_KEY is required for deployment");
-
-  const constructorArguments = [
-    IRB_TEST_TOKEN_ADDRESS,
-    requireAddressEnv("INITIAL_ADMIN_ADDRESS"),
-    requireAddressEnv("INITIAL_APPROVER_MANAGER_ADDRESS"),
-    requireAddressEnv("INITIAL_APPROVER_ADDRESS"),
-    requireAddressEnv("INITIAL_CAMPAIGN_MANAGER_ADDRESS"),
-    requireAddressEnv("INITIAL_PAUSER_ADDRESS"),
-    requireAddressEnv("INITIAL_TREASURY_ADDRESS"),
-  ] as const;
+  const deployer = getValidatedTestnetDeployer(ethers.provider);
+  const constructorArguments = getTestnetConstructorArguments();
 
   const confirmationsText = process.env.DEPLOY_CONFIRMATIONS?.trim() || "3";
   if (!/^\d+$/.test(confirmationsText) || Number(confirmationsText) < 1) {
@@ -59,6 +56,18 @@ async function main(): Promise<void> {
     throw new Error("One or more initial role assignments could not be verified");
   }
 
+  const approverAddress = constructorArguments[3];
+  const approverSeparationChecks = {
+    defaultAdmin: !(await contract.hasRole(await contract.DEFAULT_ADMIN_ROLE(), approverAddress)),
+    approverManager: !(await contract.hasRole(await contract.APPROVER_MANAGER_ROLE(), approverAddress)),
+    campaignManager: !(await contract.hasRole(await contract.CAMPAIGN_MANAGER_ROLE(), approverAddress)),
+    pauser: !(await contract.hasRole(await contract.PAUSER_ROLE(), approverAddress)),
+    treasury: !(await contract.hasRole(await contract.TREASURY_ROLE(), approverAddress)),
+  };
+  if (Object.values(approverSeparationChecks).some((separated) => !separated)) {
+    throw new Error("Initial Approver has an unintended operational role");
+  }
+
   const packageManifest = JSON.parse(await readFile("package.json", "utf8")) as PackageManifest;
   const report = {
     network: "BNB Smart Chain Testnet",
@@ -73,6 +82,7 @@ async function main(): Promise<void> {
     constructorArguments,
     eip712: { name: "AurixRewardClaim", version: "1" },
     roleChecks,
+    approverSeparationChecks,
     irbPreflight: preflight,
     compiler: { version: "0.8.28", optimizerRuns: 200, evmVersion: "paris", viaIR: false },
     packageVersions: {
@@ -95,6 +105,6 @@ async function main(): Promise<void> {
 }
 
 main().catch((error: unknown) => {
-  console.error(error instanceof Error ? error.message : error);
+  console.error(formatErrorSafely(error));
   process.exitCode = 1;
 });

@@ -6,6 +6,7 @@ import type { HardhatUserConfig } from "hardhat/config";
 
 const rpcUrl = process.env.BSC_TESTNET_RPC_URL ?? "";
 const deployerPrivateKey = process.env.DEPLOYER_PRIVATE_KEY ?? "";
+const etherscanApiKey = process.env.ETHERSCAN_API_KEY ?? "";
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -30,9 +31,7 @@ const config: HardhatUserConfig = {
     },
   },
   etherscan: {
-    apiKey: {
-      bscTestnet: process.env.BSCSCAN_API_KEY ?? "",
-    },
+    apiKey: etherscanApiKey,
   },
   sourcify: {
     enabled: false,

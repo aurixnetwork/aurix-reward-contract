@@ -103,7 +103,11 @@ Populate only the required placeholders in an untracked `.env`. Run the read-onl
 
 ```bash
 npm run preflight:irb
+npm run deploy:testnet:check
 ```
+
+The readiness check validates the reviewed deployer and role mapping, reads the deployer balance and current gas price,
+estimates deployment gas through `eth_estimateGas`, reports bytecode sizes, and sends zero transactions.
 
 The deployment and verification commands are documented in [docs/BSC_TESTNET_DEPLOYMENT.md](docs/BSC_TESTNET_DEPLOYMENT.md). They are prepared commands, not evidence of deployment. Never use them against BSC Mainnet.
 
@@ -115,6 +119,7 @@ The deployment and verification commands are documented in [docs/BSC_TESTNET_DEP
 - [Campaign model](docs/CAMPAIGN_MODEL.md)
 - [Testing](docs/TESTING.md)
 - [BSC Testnet deployment](docs/BSC_TESTNET_DEPLOYMENT.md)
+- [BSC Testnet deployment readiness report](reports/DEPLOYMENT_READINESS_REPORT.md)
 - [ABI compatibility](docs/ABI_COMPATIBILITY.md)
 - [Security reporting](SECURITY.md)
 

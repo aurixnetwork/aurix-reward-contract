@@ -13,6 +13,8 @@ All notable changes are recorded here. This project follows semantic versioning 
 - Paused-only reward-token withdrawal, unrelated ERC-20 recovery, and direct BNB rejection.
 - Deterministic authorization, replay, interval, campaign, role, pause, treasury, and security tests.
 - Read-only IRB testnet preflight and prepared BSC Testnet deployment/verification scripts.
+- Zero-transaction BSC Testnet deployment readiness checks with fixed role validation, gas estimation, and bytecode sizing.
+- Etherscan V2 multichain configuration for post-deployment BSC Testnet source verification.
 - ABI export, public documentation, coverage tooling, Solidity linting, and GitHub Actions CI.
 
 ### Security

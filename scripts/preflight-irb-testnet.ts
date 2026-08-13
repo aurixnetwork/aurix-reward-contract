@@ -1,5 +1,6 @@
 import { ethers } from "hardhat";
 
+import { formatErrorSafely } from "./lib/config";
 import { validateIrbToken } from "./lib/irb-preflight";
 
 async function main(): Promise<void> {
@@ -11,6 +12,6 @@ async function main(): Promise<void> {
 }
 
 main().catch((error: unknown) => {
-  console.error(error instanceof Error ? error.message : error);
+  console.error(formatErrorSafely(error));
   process.exitCode = 1;
 });
