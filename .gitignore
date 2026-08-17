@@ -9,12 +9,18 @@ dist/
 .env
 .env.*
 !.env.example
+!.env.testnet.example
+!.env.mainnet.example
 
 deployments/local/
 deployments/bsc-testnet-*.json
 !deployments/bsc-testnet.example.json
 !deployments/bsc-testnet-current.json
+deployments/bsc-mainnet-*.json
+!deployments/bsc-mainnet.example.json
 reports/irb-testnet-preflight.json
+reports/aurx-mainnet-readiness.json
+reports/bsc-mainnet-post-deployment-*.json
 *.log
 
 .DS_Store

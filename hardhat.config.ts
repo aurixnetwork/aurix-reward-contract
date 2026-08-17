@@ -4,7 +4,8 @@ import "dotenv/config";
 
 import type { HardhatUserConfig } from "hardhat/config";
 
-const rpcUrl = process.env.BSC_TESTNET_RPC_URL ?? "";
+const testnetRpcUrl = process.env.BSC_TESTNET_RPC_URL ?? "";
+const mainnetRpcUrl = process.env.BSC_MAINNET_RPC_URL ?? "";
 const deployerPrivateKey = process.env.DEPLOYER_PRIVATE_KEY ?? "";
 const etherscanApiKey = process.env.ETHERSCAN_API_KEY ?? "";
 
@@ -25,13 +26,23 @@ const config: HardhatUserConfig = {
       chainId: 31337,
     },
     bscTestnet: {
-      url: rpcUrl,
+      url: testnetRpcUrl,
       chainId: 97,
       accounts: deployerPrivateKey ? [deployerPrivateKey] : [],
     },
     bscTestnetReadOnly: {
-      url: rpcUrl,
+      url: testnetRpcUrl,
       chainId: 97,
+      accounts: [],
+    },
+    bscMainnet: {
+      url: mainnetRpcUrl,
+      chainId: 56,
+      accounts: [],
+    },
+    bscMainnetReadOnly: {
+      url: mainnetRpcUrl,
+      chainId: 56,
       accounts: [],
     },
   },

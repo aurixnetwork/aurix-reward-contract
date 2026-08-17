@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "network": "BNB Smart Chain Mainnet",
+  "chainId": "56",
+  "deployedAtUtc": null,
+  "contractName": "AurixRewardClaim",
+  "contractAddress": null,
+  "deploymentTransactionHash": null,
+  "blockNumber": null,
+  "deployerAddress": "<REQUIRED_OWNER_INPUT>",
+  "constructorArguments": [
+    "0x24ECb00840081D56116fC6D076988411a5595fd0",
+    "<MAINNET_DEFAULT_ADMIN_ADDRESS>",
+    "<MAINNET_APPROVER_MANAGER_ADDRESS>",
+    "<MAINNET_APPROVER_ADDRESS>",
+    "<MAINNET_CAMPAIGN_MANAGER_ADDRESS>",
+    "<MAINNET_PAUSER_ADDRESS>",
+    "<MAINNET_TREASURY_RECOVERY_ADDRESS>"
+  ],
+  "eip712": {
+    "name": "AurixRewardClaim",
+    "version": "1",
+    "chainId": "56",
+    "verifyingContract": null
+  },
+  "compiler": {
+    "version": "0.8.28",
+    "optimizerRuns": 200,
+    "evmVersion": "paris",
+    "viaIR": false
+  },
+  "rewardToken": {
+    "address": "0x24ECb00840081D56116fC6D076988411a5595fd0",
+    "name": "<READ_THROUGH_RPC>",
+    "symbol": "AURX",
+    "decimals": 18,
+    "codeSizeBytes": "<READ_THROUGH_RPC>"
+  },
+  "sourceGitCommit": null,
+  "verification": {
+    "status": "not deployed",
+    "explorerUrl": null
+  }
+}

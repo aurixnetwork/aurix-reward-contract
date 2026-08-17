@@ -3,7 +3,7 @@ import { dirname, resolve } from "node:path";
 
 import { Contract, getAddress, type Provider } from "ethers";
 
-import { BSC_TESTNET_CHAIN_ID, IRB_TEST_TOKEN_ADDRESS } from "./config";
+import { BSC_TESTNET_CHAIN_ID, IRB_TEST_TOKEN_ADDRESS, assertProfileConnection } from "./config";
 
 const TOKEN_ABI = [
   "function name() view returns (string)",
@@ -28,9 +28,7 @@ export async function validateIrbToken(
   reportPath?: string,
 ): Promise<IrbPreflightReport> {
   const network = await provider.getNetwork();
-  if (network.chainId !== BSC_TESTNET_CHAIN_ID) {
-    throw new Error(`Wrong network: expected chain ID 97, received ${network.chainId}`);
-  }
+  assertProfileConnection("TESTNET", Number(BSC_TESTNET_CHAIN_ID), network.chainId);
 
   const configuredAddress = process.env.IRB_TEST_TOKEN_ADDRESS?.trim();
   if (!configuredAddress) throw new Error("IRB_TEST_TOKEN_ADDRESS is required");
