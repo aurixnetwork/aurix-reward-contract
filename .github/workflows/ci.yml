@@ -36,6 +36,15 @@ jobs:
       - name: Lint Solidity and TypeScript
         run: npm run lint
 
+      - name: Scan tracked files for secrets
+        run: npm run secretlint
+
+      - name: Validate frozen source and ABI baseline
+        run: npm run validate:baseline
+
+      - name: Audit production dependencies
+        run: npm audit --omit=dev
+
       - name: Run deterministic tests
         run: npm test
 
