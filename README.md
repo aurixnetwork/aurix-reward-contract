@@ -1,6 +1,6 @@
 # Aurix Reward Contract
 
-[![Contract validation](https://github.com/aurixnetwork/aurix-reward-contract/actions/workflows/ci.yml/badge.svg?branch=feature%2Ftestnet-reward-contract-v1)](https://github.com/aurixnetwork/aurix-reward-contract/actions/workflows/ci.yml?query=branch%3Afeature%2Ftestnet-reward-contract-v1)
+[![Contract validation](https://github.com/aurixnetwork/aurix-reward-contract/actions/workflows/ci.yml/badge.svg?branch=feature%2Fmainnet-contract-readiness-v1)](https://github.com/aurixnetwork/aurix-reward-contract/actions/workflows/ci.yml?query=branch%3Afeature%2Fmainnet-contract-readiness-v1)
 
 Public smart-contract repository for the Aurix Network reward authorization and claimant self-claim system. This repository is independent of the off-chain Node.js reward server.
 
@@ -8,7 +8,7 @@ Public smart-contract repository for the Aurix Network reward authorization and 
 
 Version 1 is public development software deployed to BNB Smart Chain Testnet at `0x355D58c905f42F4f78abCD7413371F6EE4Dba137`. Read-only post-deployment validation and GitHub CI passed, and Sourcify reports an exact source match for both creation and runtime bytecode. **BSC Mainnet is not deployed.**
 
-The authoritative public references are the [testnet deployment status](docs/TESTNET_DEPLOYMENT_STATUS.md), [current deployment reference](deployments/bsc-testnet-current.json), address-specific [deployment record](deployments/bsc-testnet-0x355D58c905f42F4f78abCD7413371F6EE4Dba137.json), and [consumer ABI](abi/AurixRewardClaim.json).
+The authoritative public references are the [testnet deployment status](docs/TESTNET_DEPLOYMENT_STATUS.md), [current deployment reference](deployments/bsc-testnet-current.json), address-specific [deployment record](deployments/bsc-testnet-0x355D58c905f42F4f78abCD7413371F6EE4Dba137.json), [Mainnet readiness design](docs/MAINNET_CONTRACT_READINESS.md), and [consumer ABI](abi/AurixRewardClaim.json).
 
 Passing tests and static checks do not make the contract audited or guarantee security. The existing Beosin review of the AURX token does not cover `AurixRewardClaim`; this contract requires its own independent security review before production use.
 
@@ -138,6 +138,17 @@ estimates deployment gas through `eth_estimateGas`, reports bytecode sizes, and 
 
 The deployment and verification commands are documented in [docs/BSC_TESTNET_DEPLOYMENT.md](docs/BSC_TESTNET_DEPLOYMENT.md). Sourcify verification is complete; the optional manual BscScan Testnet submission remains pending. Never use these commands against BSC Mainnet.
 
+## BSC Mainnet readiness
+
+Mainnet has an explicit isolated profile: chain ID `56`, AURX at `0x24ECb00840081D56116fC6D076988411a5595fd0`, a separate RPC variable, no configured signer accounts, and no assumed reward-contract address. Live read-only checks confirmed AURX bytecode and `AURIX Network` / `AURX` / `18` metadata. Production roles and deployer remain `REQUIRED_OWNER_INPUT`; the deployment guard defaults to false, so current readiness is intentionally false.
+
+```bash
+cp .env.mainnet.example .env
+npm run mainnet:readiness
+```
+
+The command sends zero transactions and exits nonzero until all owner inputs and the one-shot guard are present. See [BNB Smart Chain Mainnet Contract Readiness](docs/MAINNET_CONTRACT_READINESS.md). The documented deployment command must not be executed during this readiness phase.
+
 ## Documentation
 
 - [Architecture](docs/ARCHITECTURE.md)
@@ -147,6 +158,8 @@ The deployment and verification commands are documented in [docs/BSC_TESTNET_DEP
 - [Testing](docs/TESTING.md)
 - [BSC Testnet deployment](docs/BSC_TESTNET_DEPLOYMENT.md)
 - [BSC Testnet deployment status](docs/TESTNET_DEPLOYMENT_STATUS.md)
+- [BSC Mainnet contract readiness](docs/MAINNET_CONTRACT_READINESS.md)
+- [BSC Mainnet readiness report](reports/MAINNET_CONTRACT_READINESS_REPORT.md)
 - [BSC Testnet deployment readiness report](reports/DEPLOYMENT_READINESS_REPORT.md)
 - [BSC Testnet post-deployment validation report](reports/POST_DEPLOYMENT_VALIDATION_REPORT.md)
 - [BSC Testnet source-verification report](reports/SOURCE_VERIFICATION_REPORT.md)

@@ -34,3 +34,5 @@ Amounts are token base units. `campaignId` and `rewardId` are nonzero bytes32 va
 The recovered signer must hold `APPROVER_ROLE` when the claim executes. Granting or revoking that role immediately affects all unconsumed signatures from that signer.
 
 There is no separate claimant off-chain signature in v1. The claimant signs/sends the on-chain transaction.
+
+The validated Testnet domain uses chain ID `97` and Testnet contract `0x355D58c905f42F4f78abCD7413371F6EE4Dba137`. A future Mainnet domain must use chain ID `56` and the actual future Mainnet deployment address. Signatures are not portable between these domains.

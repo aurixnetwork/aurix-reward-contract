@@ -18,6 +18,8 @@ The reward recipient is never configurable per claim: it is always `authorizatio
 
 Version 1 has no proxy, upgrade hook, minting, token pricing, investment/return logic, arbitrary external call, `delegatecall`, `tx.origin`, relayed claimant transaction, separate UserRequest signature, or native-BNB deposit path.
 
+Operational policies such as first-reward-only, once-per-campaign, recurring dispatch, dispatch intervals, wallet queues, Ethereum transaction-nonce coordination, durable run state, run pause/resume, wallet selection, and pilot batch processing belong to the reward server. They are not Mainnet contract-readiness features and are not added to Solidity.
+
 ## Compilation
 
 The pinned compiler is Solidity 0.8.28 with optimizer enabled for 200 runs, Paris EVM target, and `viaIR` disabled. The contract is non-upgradeable and constructor-configured.

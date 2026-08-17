@@ -19,6 +19,12 @@ All notable changes are recorded here. This project follows semantic versioning 
 - Finalized public BSC Testnet deployment status, stable current-deployment metadata, and consumer ABI references.
 - Etherscan V2 multichain configuration for post-deployment BSC Testnet source verification.
 - ABI export, public documentation, coverage tooling, Solidity linting, and GitHub Actions CI.
+- Explicit, fail-closed BSC Testnet/Mainnet profiles with isolated RPC and deployment artifacts.
+- Read-only BSC Mainnet readiness checks for chain ID, AURX bytecode/metadata, roles, deployer balance, gas price, compiler baseline, and constructor display.
+- A one-shot Mainnet deployment guard, guarded future deployment script, read-only post-deployment validator, and Mainnet source-verification path.
+- Frozen Solidity/interface/ABI hash validation and deterministic Testnet/Mainnet EIP-712 signature-domain isolation tests.
+- Mainnet environment and deployment-artifact examples with no credentials or invented production addresses.
+- Secretlint scanning and production dependency audit in CI.
 
 ### Security
 

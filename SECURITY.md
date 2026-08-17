@@ -21,5 +21,8 @@ The project team should acknowledge a report, assess severity, coordinate a fix 
 - Treat reward IDs as globally unique and nonces as campaign-wallet state.
 - Inspect the preflight and deployment reports before verification or role handover.
 - Do not deploy this version to BSC Mainnet without explicit owner approval and separate readiness review.
+- Keep `MAINNET_DEPLOYMENT_ENABLED` false except on the single explicitly authorized deployment invocation.
+- Never reuse Testnet RPC, token, reward-contract, deployer, or role configuration silently in the Mainnet profile.
+- Treat any frozen Solidity source, interface, ABI, or compiler identity mismatch as a deployment stop condition.
 
 See [docs/SECURITY_MODEL.md](docs/SECURITY_MODEL.md) for the trust model and known limitations.

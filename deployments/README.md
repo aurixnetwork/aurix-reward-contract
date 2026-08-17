@@ -15,3 +15,7 @@
 - BscScan manual Standard JSON package: [`../verification/bscscan-testnet/`](../verification/bscscan-testnet/)
 
 The address-specific metadata file remains the canonical machine-readable deployment record. `bsc-testnet-current.json` is a safe, stable consumer pointer to that record, while `bsc-testnet.example.json` remains the generic report-shape example. Never add private keys, RPC credentials, API keys, mnemonics, or other credentials to deployment metadata.
+
+## BNB Smart Chain Mainnet
+
+`AurixRewardClaim` is not deployed on Mainnet. Do not invent or publish a Mainnet address. `bsc-mainnet.example.json` defines the future address-specific evidence shape without a contract address, transaction hash, or role holders. A future guarded deployment writes `bsc-mainnet-<contract-address>.json`, never a Testnet path; that output must be manually reviewed before it is committed or referenced as current.
