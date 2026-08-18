@@ -24,8 +24,11 @@ async function main(): Promise<void> {
   requireEnv("ETHERSCAN_API_KEY");
   const report = JSON.parse(await readFile(requireEnv("MAINNET_DEPLOYMENT_ARTIFACT"), "utf8")) as DeploymentArtifact;
   if (report.chainId !== "56") throw new Error("Deployment artifact is not for chain ID 56");
-  if (ethers.getAddress(report.contractAddress) === TESTNET_REWARD_CONTRACT_ADDRESS) {
-    throw new Error("Testnet reward address cannot be verified as Mainnet");
+  if (
+    ethers.getAddress(report.contractAddress) === TESTNET_REWARD_CONTRACT_ADDRESS
+    && process.env.MAINNET_TESTNET_ADDRESS_REUSE_APPROVED?.trim() !== "true"
+  ) {
+    throw new Error("Testnet reward address cannot be verified as Mainnet without explicit owner reuse approval");
   }
   if (ethers.getAddress(report.constructorArguments[0]) !== AURX_MAINNET_TOKEN_ADDRESS) {
     throw new Error("Deployment artifact constructor does not use AURX Mainnet");

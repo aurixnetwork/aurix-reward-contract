@@ -66,7 +66,11 @@ async function main(): Promise<void> {
     path.basename(artifactPath).toLowerCase() === `bsc-mainnet-${deployment.contractAddress}.json`.toLowerCase(),
     "Mainnet deployment artifact filename must contain its contract address",
   );
-  assertCondition(ethers.getAddress(deployment.contractAddress) !== TESTNET_REWARD_CONTRACT_ADDRESS, "Testnet reward address cannot be used on Mainnet");
+  assertCondition(
+    ethers.getAddress(deployment.contractAddress) !== TESTNET_REWARD_CONTRACT_ADDRESS
+      || process.env.MAINNET_TESTNET_ADDRESS_REUSE_APPROVED?.trim() === "true",
+    "Testnet reward address cannot be used on Mainnet without explicit owner reuse approval",
+  );
   assertCondition(/^0x[0-9a-fA-F]{64}$/u.test(deployment.deploymentTransactionHash), "Deployment transaction hash is invalid");
   assertCondition(Array.isArray(deployment.constructorArguments) && deployment.constructorArguments.length === 7, "Seven constructor arguments are required");
   assertCondition(ethers.getAddress(deployment.constructorArguments[0]) === AURX_MAINNET_TOKEN_ADDRESS, "Constructor token is not AURX Mainnet");
